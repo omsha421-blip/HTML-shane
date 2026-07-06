@@ -1,0 +1,302 @@
+/* --- 1. إعدادات المتغيرات العامة والخطوط --- */
+:root {
+    --bg-primary: #0f172a;       /* لون الخلفية الأساسي داكن فخم */
+    --bg-secondary: #080c13;     /* لون خلفية الكروت والأقسام الفرعية */
+    --accent-color: #38bdf8;     /* اللون المميز - أزرق نيوني مضيء */
+    --text-main: #f8fafc;        /* لون النصوص الأساسية - أبيض ناصع */
+    --text-muted: #94a3b8;       /* لون النصوص الفرعية - رمادي */
+    --transition-smooth: all 0.3s ease;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Cairo', sans-serif; /* استخدام الخط العربي الاحترافي */
+    scroll-behavior: smooth;         /* تنقل سلس بين الأقسام */
+}
+
+body {
+    background-color: var(--bg-primary);
+    color: var(--text-main);
+    line-height: 1.6;
+    overflow-x: hidden;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+/* --- 2. تنسيق الهيدر وشريط التنقل --- */
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1.5rem 10%;
+    background-color: rgba(15, 23, 42, 0.9);
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 1000;
+    backdrop-filter: blur(10px); /* تأثير زجاجي خلف القائمة */
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.logo {
+    font-size: 1.8rem;
+    font-weight: 900;
+    letter-spacing: 1px;
+}
+
+.logo span {
+    color: var(--accent-color);
+}
+
+.nav-links {
+    display: flex;
+    list-style: none;
+    gap: 2rem;
+}
+
+.nav-links a {
+    font-size: 1.05rem;
+    font-weight: 700;
+    transition: var(--transition-smooth);
+}
+
+.nav-links a:hover {
+    color: var(--accent-color);
+}
+
+/* --- 3. تنسيق القسم الرئيسي (Hero Section) --- */
+.hero-section {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 10%;
+    padding-top: 100px; /* لتفادي التداخل مع الهيدر الثابت */
+    gap: 2rem;
+}
+
+.hero-content {
+    max-width: 600px;
+}
+
+.hero-content h3 {
+    color: var(--accent-color);
+    font-size: 1.2rem;
+    margin-bottom: 0.5rem;
+    font-weight: 400;
+}
+
+.hero-content h1 {
+    font-size: 3.5rem;
+    font-weight: 900;
+    margin-bottom: 1rem;
+}
+
+.highlight {
+    color: var(--accent-color);
+    position: relative;
+}
+
+.hero-content p {
+    color: var(--text-muted);
+    font-size: 1.1rem;
+    margin-bottom: 2rem;
+}
+
+/* الأزرار */
+.hero-buttons {
+    display: flex;
+    gap: 1rem;
+}
+
+.btn {
+    padding: 0.8rem 2rem;
+    border-radius: 8px;
+    font-weight: 700;
+    cursor: pointer;
+    transition: var(--transition-smooth);
+    display: inline-block;
+}
+
+.primary-btn {
+    background-color: var(--accent-color);
+    color: #0f172a;
+    border: 2px solid var(--accent-color);
+}
+
+.primary-btn:hover {
+    background-color: transparent;
+    color: var(--accent-color);
+    box-shadow: 0 0 15px rgba(56, 189, 248, 0.4);
+}
+
+.secondary-btn {
+    background-color: transparent;
+    color: var(--text-main);
+    border: 2px solid var(--text-muted);
+}
+
+.secondary-btn:hover {
+    border-color: var(--accent-color);
+    color: var(--accent-color);
+}
+
+.hero-image img {
+    width: 350px;
+    height: 350px;
+    border-radius: 30% 70% 70% 30% / 30% 30% 70% 70%; /* شكل عضوي متحرك وعصري */
+    object-fit: cover;
+    border: 4px solid var(--accent-color);
+    box-shadow: 0 0 25px rgba(56, 189, 248, 0.2);
+}
+
+/* --- 4. العناوين العامة للأقسام --- */
+.section-title {
+    text-align: center;
+    font-size: 2.2rem;
+    font-weight: 900;
+    margin-bottom: 3rem;
+    position: relative;
+}
+
+.section-title::after {
+    content: '';
+    display: block;
+    width: 60px;
+    height: 4px;
+    background-color: var(--accent-color);
+    margin: 0.5rem auto 0;
+    border-radius: 2px;
+}
+
+/* --- 5. تنسيق قسم نبذة عني --- */
+.about-section, .skills-section, .contact-section {
+    padding: 6rem 10%;
+}
+
+.about-container {
+    background-color: var(--bg-secondary);
+    padding: 2.5rem;
+    border-radius: 16px;
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    max-width: 800px;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.about-text p {
+    color: var(--text-muted);
+    font-size: 1.1rem;
+    margin-bottom: 1.5rem;
+}
+
+.about-text p:last-child {
+    margin-bottom: 0;
+}
+
+/* --- 6. تنسيق قسم المهارات (شبكة كروت) --- */
+.skills-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1max));
+    gap: 2rem;
+}
+
+.skill-card {
+    background-color: var(--bg-secondary);
+    padding: 2rem;
+    border-radius: 12px;
+    border-bottom: 4px solid transparent;
+    transition: var(--transition-smooth);
+}
+
+.skill-card:hover {
+    transform: translateY(-5px);
+    border-bottom-color: var(--accent-color);
+    box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+}
+
+.skill-card h3 {
+    margin-bottom: 1rem;
+    font-size: 1.3rem;
+}
+
+.skill-card p {
+    color: var(--text-muted);
+    font-size: 0.95rem;
+}
+
+/* --- 7. تنسيق قسم الاتصال والنموذج --- */
+.contact-subtitle {
+    text-align: center;
+    color: var(--text-muted);
+    margin-top: -2rem;
+    margin-bottom: 3rem;
+}
+
+.contact-form {
+    max-width: 600px;
+    margin: 0 auto;
+    background-color: var(--bg-secondary);
+    padding: 2.5rem;
+    border-radius: 16px;
+    display: flex;
+    flex-direction: column;
+    gap: 1.2rem;
+}
+
+.form-group input, .form-group textarea {
+    width: 100%;
+    padding: 1rem;
+    background-color: var(--bg-primary);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 8px;
+    color: var(--text-main);
+    font-size: 1rem;
+    transition: var(--transition-smooth);
+}
+
+.form-group input:focus, .form-group textarea:focus {
+    outline: none;
+    border-color: var(--accent-color);
+    box-shadow: 0 0 8px rgba(56, 189, 248, 0.2);
+}
+
+/* --- 8. التذييل (Footer) --- */
+.footer {
+    text-align: center;
+    padding: 2rem;
+    background-color: #0b111e;
+    color: var(--text-muted);
+    font-size: 0.9rem;
+    border-top: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+/* --- 9. التجاوب مع الشاشات المختلفة (Responsive Design) --- */
+@media (max-width: 768px) {
+    .navbar {
+        padding: 1rem 5%;
+    }
+    .hero-section {
+        flex-direction: column-reverse;
+        text-align: center;
+        padding: 120px 5% 3rem 5%;
+    }
+    .hero-buttons {
+        justify-content: center;
+    }
+    .hero-image img {
+        width: 250px;
+        height: 250px;
+    }
+    .hero-content h1 {
+        font-size: 2.5rem;
+    }
+    .about-section, .skills-section, .contact-section {
+        padding: 4rem 5%;
+    }
+}
